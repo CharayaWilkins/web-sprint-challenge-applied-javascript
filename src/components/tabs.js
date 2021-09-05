@@ -1,3 +1,5 @@
+
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -12,7 +14,22 @@ const Tabs = (topics) => {
   //   <div class="tab">bootstrap</div>
   //   <div class="tab">technology</div>
   // </div>
-  //
+// DATA
+import topics from './mocks/data.js';
+console.log(topics);
+//Elements
+const topicsDiv = document.createElement('div');
+const topicsContent = document.createElement('div');
+
+//Adding Classes
+topicsDiv.classList.add('topics');
+topicsContent.classList.add('tabs');
+
+//Appending
+topicsDiv.appendChild(topicsContent)
+
+//Adding Content
+topicsContent.textContent = `${topics}`
 }
 
 const tabsAppender = (selector) => {
@@ -23,6 +40,9 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+  //Selector
+  const tabsContainer = document.querySelector('.tabs-container');
+  tabsContainer.appendChild(topicsDiv);
 }
 
 export { Tabs, tabsAppender }
