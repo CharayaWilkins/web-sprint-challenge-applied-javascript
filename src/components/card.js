@@ -1,3 +1,10 @@
+ //DATA
+ import topics from './mocks/data/js';
+ import articles from './mocks/data.js';
+ console.log(articles);
+ console.log(data);
+ console.log(topics);
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -16,8 +23,40 @@ const Card = (article) => {
   //     <span>By { authorName }</span>
   //   </div>
   // </div>
-  //
+ 
+  //Elements
+  const cardDiv = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const cardImgDiv = document.createElement('div');
+  const cardImg = document.createElement('img');
+  const authorName = document.createElement('span');
+
+  //Classes
+  cardDiv.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  cardImgDiv.classList.add('img-container');
+
+  //Appending Elements
+  cardDiv.appendChild(headline);
+  cardDiv.appendChild(author);
+  author.appendChild(cardImgDiv);
+  author.appendChild(authorName);
+  cardImgDiv.appendChild(cardImg);
+
+  //Content - Unsure about how to select article topic
+  headline.textContent = articles[`${this.article}`]["headline"];
+  cardImg.setAttribute('src', articles[`${this.article}`]["authorPhoto"]);
+  authorName.textContent = articles[`${this.article}`]["authorName"];
+
+  //Event Listener
+cardDiv.addEventListener('click', () => {
+  console.log(headline);
+})
 }
+
+
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -28,6 +67,14 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+  //Selector 
+  const cardContainer = documents.querySelector('.card-container');
+  const articleElements = articles.map(element => {
+    return Card(element);
+  })
+  articleElements.forEach(artElem => {
+    cardContainer.appendChild(articleElements);
+  })
 }
 
 export { Card, cardAppender }

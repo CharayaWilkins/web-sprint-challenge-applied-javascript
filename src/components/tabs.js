@@ -21,14 +21,14 @@ console.log(topics);
 const topicsDiv = document.createElement('div');
 const topicsContent = document.createElement('div');
 
-//Adding Classes
+//Classes
 topicsDiv.classList.add('topics');
 topicsContent.classList.add('tabs');
 
-//Appending
+//Appending Elements
 topicsDiv.appendChild(topicsContent)
 
-//Adding Content
+//Content
 topicsContent.textContent = `${topics}`
 }
 
@@ -42,7 +42,17 @@ const tabsAppender = (selector) => {
   //
   //Selector
   const tabsContainer = document.querySelector('.tabs-container');
-  tabsContainer.appendChild(topicsDiv);
+
+  //Mapping
+  const tabElements = topics.map(topic => {
+    return Tabs(topic);
+  })
+  
+  //Looping
+  tabElements.forEach(tab => {
+    tabsContainer.appendChild(tabElements)
+  })
+
 }
 
 export { Tabs, tabsAppender }

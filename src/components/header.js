@@ -11,19 +11,20 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-//create elements
+//Elements
   const headerDiv = document.createElement('div');
   const date = document.createElement('span');
   const title = document.createElement('h1');
   const temp = document.createElement('span');
-//add classes
+//Classes
 headerDiv.classList.add('header');
 date.classList.add('date');
 temp.classList.add('temp');
-//apprend
+//Apprending Elements
   headerDiv.appendChild(date);
   headerDiv.appendChild(title);
   headerDiv.appendChild(temp);
+  
   
 
 }
