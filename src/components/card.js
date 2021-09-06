@@ -2,7 +2,7 @@
  import topics from './mocks/data/js';
  import articles from './mocks/data.js';
  console.log(articles);
- console.log(data);
+
  console.log(topics);
 
 const Card = (article) => {
@@ -69,9 +69,13 @@ const cardAppender = (selector) => {
   //
   //Selector 
   const cardContainer = documents.querySelector('.card-container');
+
+  //Mapping through articles
   const articleElements = articles.map(element => {
     return Card(element);
   })
+
+  //Looping
   articleElements.forEach(artElem => {
     cardContainer.appendChild(articleElements);
   })
